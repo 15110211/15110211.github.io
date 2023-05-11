@@ -137,17 +137,41 @@
       <div class="post-content-main animate__animated  animate__fadeInUp">
         <!-- top型目录 -->
         
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+        <h2 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h2><p>本次实验需要部署一个静态网页博客，我选择了Hexo主题，部署过程</p>
+<ol>
+<li>环境准备<br>首先需要安装node.js和Git，这两项我之前已经安装过，所以直接跳过。</li>
+<li>安装Hexo<br>在Git中输入安装命令、初始化hexo（myblog是我新建的文件夹）<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init myblog</span><br><span class="line"><span class="built_in">cd</span> myblog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+启动服务站点<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g </span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+成功访问<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> </li>
+<li>github建站访问<br>github新建仓库15110211.github.io（名称为用户名+.github.io），然后在_config.yml中更改deploy<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: https://github.com/15110211/151102111.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+然后依次运行下方命令即可通过<a href="https://15110211.github.io/">https://15110211.github.io</a> 访问我的博客<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="主题选取"><a href="#主题选取" class="headerlink" title="主题选取"></a>主题选取</h2><p>本次博客选取了Hexo的white主题。选择原因如下：</p>
+<ul>
+<li>刚接触hexo，想用一个简单的主题来练手，white页面极简且结构清晰易懂</li>
+<li>white整体简洁大方，符合我的审美</li>
+<li>white的基本功能完善，可以在此基础上添加别的功能</li>
+</ul>
+<h2 id="页面布局"><a href="#页面布局" class="headerlink" title="页面布局"></a>页面布局</h2><p>本次博客菜单含有四个界面：</p>
+<ul>
+<li>Home：主页面</li>
+<li>Blog：博客页面，介绍多部我喜欢的动画片</li>
+<li>Summmary： 本次作业总结与反思</li>
+<li>About： 关于我</li>
+</ul>
+<h2 id="遇到的问题及其解决方法"><a href="#遇到的问题及其解决方法" class="headerlink" title="遇到的问题及其解决方法"></a>遇到的问题及其解决方法</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>
+        <span class="lazyload-img-span">
+        <img   
+           data-src="/../pic/error.png" >
+        </sapn>
+      </p>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>运行hexo d命令时报错，原因是因为hexo d的时候改变了一些.deploy_git文件下的内容。</p>
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><ol>
+<li>删除.deploy_git文件夹;</li>
+<li>输入以下命令：git config –global core.autocrlf false</li>
+<li>再重新执行：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
@@ -155,7 +179,7 @@
       <div class="post-content-inner-space">
         
           <div class="space-toc-main animate__animated  animate__fadeInUp">
-            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#Quick-Start"><span class="space-toc-text">Quick Start</span></a></li></ol>
+            <ol class="space-toc"><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#%E9%83%A8%E7%BD%B2%E5%8D%9A%E5%AE%A2"><span class="space-toc-text">部署博客</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#%E4%B8%BB%E9%A2%98%E9%80%89%E5%8F%96"><span class="space-toc-text">主题选取</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80"><span class="space-toc-text">页面布局</span></a></li><li class="space-toc-item space-toc-level-2"><a class="space-toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="space-toc-text">遇到的问题及其解决方法</span></a></li></ol>
            </div>
         
       </div>
